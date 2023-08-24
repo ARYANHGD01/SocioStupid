@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPosts } from "state";
+import { setPosts} from "../../state"
 import PostWidget from "./PostWidget";
 
 const PostsWidget = ({ userId, isProfile = false }) => {
+    console.log("Received userId:", userId);
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.posts);
   const token = useSelector((state) => state.token);
@@ -18,6 +19,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   };
 
   const getUserPosts = async () => {
+    console.log("Fetching user posts for userId:", userId);
     const response = await fetch(
       `http://localhost:3001/posts/${userId}/posts`,
       {
@@ -30,6 +32,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   };
 
   useEffect(() => {
+    console.log("Inside PostWidget useEffect. userId:", userId);
     if (isProfile) {
       getUserPosts();
     } else {
