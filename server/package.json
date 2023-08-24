@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start": "nodemon ./index.js localhost 3001",
     "test": "node index.js"
   },
   "keywords": [],
