@@ -11,7 +11,6 @@ import WidgetWrapper from "../../components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPost } from "../../state";
-import React from "react";
 
 const PostWidget = ({
   postId,
@@ -21,7 +20,7 @@ const PostWidget = ({
   location,
   picturePath,
   userPicturePath,
-  likes={},
+  likes,
   comments,
 }) => {
   const [isComments, setIsComments] = useState(false);

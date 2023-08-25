@@ -14,7 +14,6 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       headers: { Authorization: `Bearer ${token}` },
     });
     const data = await response.json();
-    console.log("Fetched data:", data);
     dispatch(setPosts({ posts: data }));
   };
 
@@ -27,7 +26,6 @@ const PostsWidget = ({ userId, isProfile = false }) => {
       }
     );
     const data = await response.json();
-    console.log("Fetched data:", data);
     dispatch(setPosts({ posts: data }));
   };
 
@@ -39,7 +37,6 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  console.log("PostsWidget - posts:", posts);
   return (
     <>
       {posts.map(
@@ -52,7 +49,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
           location,
           picturePath,
           userPicturePath,
-          likes,
+          likes={},
           comments,
         }) => (
           <PostWidget
