@@ -66,7 +66,7 @@ import {
                 sx={{
                   "&:hover": {
                     color: palette.primary.light,
-                    cursor: "pointer",
+                    cursor: "pointer"
                   },
                 }}
               >
