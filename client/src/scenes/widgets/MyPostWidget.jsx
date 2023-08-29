@@ -27,6 +27,8 @@ import {
   
   const MyPostWidget = ({ picturePath }) => {
     const dispatch = useDispatch();
+    const theme = useTheme();
+    const hoverColor = theme.palette.mode === "light" ? "black" : "white";
     const [isImage, setIsImage] = useState(false);
     const [image, setImage] = useState(null);
     const [post, setPost] = useState("");
@@ -154,17 +156,20 @@ import {
             </FlexBetween>
           )}
   
-          <Button
-            disabled={!post}
-            onClick={handlePost}
-            sx={{
-              color: palette.background.alt,
-              backgroundColor: palette.primary.main,
-              borderRadius: "3rem",
-            }}
-          >
-            POST
-          </Button>
+                <Button
+                    disabled={!post}
+                    onClick={handlePost}
+                    sx={{
+                        color:"white",
+                        backgroundColor:palette.primary.main,
+                        borderRadius: "3rem",
+                        "&:hover": {
+                            color: hoverColor,
+                        },
+                    }}
+                >
+                    POST
+                </Button>
         </FlexBetween>
       </WidgetWrapper>
     );
